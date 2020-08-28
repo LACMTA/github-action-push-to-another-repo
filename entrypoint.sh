@@ -19,8 +19,6 @@ echo "Cloning destination git repository"
 git config --global user.email "$USER_EMAIL"
 git config --global user.name "$GITHUB_USERNAME"
 git clone --single-branch --branch master --no-checkout "https://$API_TOKEN_GITHUB@github.com/$REPO_USERNAME/$GITHUB_REPO.git" "$CLONE_DIR"
-
-cd data/
 git sparse-checkout init --cone
 git sparse-checkout set data/
 ls -la "$CLONE_DIR"
@@ -39,7 +37,7 @@ cd "$CLONE_DIR"
 ls -la
 
 echo "Adding git commit"
-git add .
+git add ./data
 git status
 git commit --message "Update from https://github.com/$GITHUB_REPOSITORY/commit/$GITHUB_SHA"
 
