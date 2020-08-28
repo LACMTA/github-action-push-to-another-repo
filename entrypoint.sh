@@ -18,26 +18,19 @@ echo "Cloning destination git repository"
 # Setup git
 git config --global user.email "$USER_EMAIL"
 git config --global user.name "$GITHUB_USERNAME"
-git clone --single-branch --branch master "https://$API_TOKEN_GITHUB@github.com/$REPO_USERNAME/$GITHUB_REPO.git" "$CLONE_DIR"
-ls -la "$CLONE_DIR"
+git clone --single-branch --branch master "https://$API_TOKEN_GITHUB@github.com/$REPO_USERNAME/$GITHUB_REPO.git" "aapi"
 
-
-
-
-echo "Cleaning destination repository of old files"
-# Copy files into the git and deletes all git
-find "$CLONE_DIR" | grep -v "^$CLONE_DIR/\.git" | grep -v "^$CLONE_DIR$" | xargs rm -rf # delete all files (to handle deletions)
-ls -la "$CLONE_DIR"
-
+git clone --single-branch --branch master "https://$API_TOKEN_GITHUB@github.com/IDREsandbox/hatecrimemap.git" "hcm"
 echo "Copying contents to to git repo"
-cp -r "$FOLDER"/* "$CLONE_DIR/$FOLDER"
-cd "$CLONE_DIR"
-ls -la
+cp -r aapi/data/ hcm/data/
+
+cd hcm
+
+git add data/
 
 echo "Adding git commit"
-git add ./"$FOLDER"
-git status
-git commit --message "Update from https://github.com/$GITHUB_REPOSITORY/commit/$GITHUB_SHA"
-
+git commit -m "Update from https://github.com/$GITHUB_REPOSITORY/commit/$GITHUB_SHA"
 echo "Pushing git commit"
-git push origin master
+git push
+
+echo "Done"
