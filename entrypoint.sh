@@ -39,7 +39,7 @@ cd "$CLONE_DIR"
 ls -la
 
 echo "Adding git commit"
-git add ./data/
+git add .
 git status
 git commit --message "Update from https://github.com/$GITHUB_REPOSITORY/commit/$GITHUB_SHA"
 
