@@ -21,6 +21,10 @@ git config --global user.name "$GITHUB_USERNAME"
 git clone --single-branch --branch master "https://$API_TOKEN_GITHUB@github.com/$REPO_USERNAME/$GITHUB_REPO.git" "aapi"
 
 git clone --single-branch --branch master "https://$API_TOKEN_GITHUB@github.com/IDREsandbox/hatecrimemap.git" "hcm"
+
+echo "making sure data folder exists"
+mkdir -p hcm/data
+
 echo "Copying contents to to git repo"
 cp -r aapi/data/ hcm/data/
 
