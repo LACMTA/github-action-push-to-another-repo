@@ -14,6 +14,11 @@ fi
 
 CLONE_DIR=$(mktemp -d)
 
+echo "cleaning tmp folders"
+
+rm -rf aapi
+rm -rf hcm
+
 echo "Cloning destination git repository"
 # Setup git
 git config --global user.email "$USER_EMAIL"
@@ -23,7 +28,7 @@ git clone --single-branch --branch master "https://$API_TOKEN_GITHUB@github.com/
 git clone --single-branch --branch master "https://$API_TOKEN_GITHUB@github.com/IDREsandbox/hatecrimemap.git" "hcm"
 
 echo "making sure data folder exists"
-mkdir -p hcm/data/aapi
+mkdir -p hcm/data/aapi/
 
 echo "Copying contents to to git repo"
 cp -r aapi/data/* hcm/data/aapi
@@ -32,6 +37,7 @@ cd hcm
 
 git add data/
 
+echo "$DATESTAMP"
 echo "Adding git commit"
 git commit -m "Update from https://github.com/$GITHUB_REPOSITORY/ on $DATESTAMP"
 echo "Pushing git commit"
