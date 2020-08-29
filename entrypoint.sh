@@ -6,7 +6,7 @@ GITHUB_USERNAME="$2"
 GITHUB_REPO="$3"
 USER_EMAIL="$4"
 REPO_USERNAME="$5"
-
+DATESTAMP = date +"%D"
 if [ -z "$REPO_USERNAME" ]
 then
   REPO_USERNAME=$GITHUB_USERNAME
@@ -23,17 +23,17 @@ git clone --single-branch --branch master "https://$API_TOKEN_GITHUB@github.com/
 git clone --single-branch --branch master "https://$API_TOKEN_GITHUB@github.com/IDREsandbox/hatecrimemap.git" "hcm"
 
 echo "making sure data folder exists"
-mkdir -p hcm/data
+mkdir -p hcm/data/aapi
 
 echo "Copying contents to to git repo"
-cp -r aapi/data/ hcm/data/
+cp -r aapi/data/* hcm/data/aapi
 
 cd hcm
 
 git add data/
 
 echo "Adding git commit"
-git commit -m "Update from https://github.com/$GITHUB_REPOSITORY/commit/$GITHUB_SHA"
+git commit -m "Update from https://github.com/$GITHUB_REPOSITORY/ on $DATESTAMP"
 echo "Pushing git commit"
 git push
 
