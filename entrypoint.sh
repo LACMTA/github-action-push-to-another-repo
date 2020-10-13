@@ -39,7 +39,7 @@ git add data.csv
 
 echo "$DATESTAMP"
 echo "Adding git commit"
-  git commit -m "Update from https://github.com/$GITHUB_REPOSITORY/ on $DATESTAMP"
+  git commit -m "$DATESTAMP Update from $GITHUB_REPOSITORY"
 echo "Pushing git commit"
 git push
 
