@@ -28,14 +28,14 @@ git clone --single-branch --branch master "https://$API_TOKEN_GITHUB@github.com/
 git clone --single-branch --branch master "https://$API_TOKEN_GITHUB@github.com/IDREsandbox/hatecrimemap.git" "hcm"
 
 echo "making sure data folder exists"
-mkdir -p hcm/data/aapi/
+# mkdir -p 
 
 echo "Copying contents to to git repo"
-cp -r aapi/data/* hcm/data/aapi
+cp -r data.csv hcm/data/aapi
 
-cd hcm
+cd hcm/data/aapi
 
-git add data/
+git add data.csv
 
 echo "$DATESTAMP"
 echo "Adding git commit"
