@@ -16,31 +16,15 @@ CLONE_DIR=$(mktemp -d)
 
 echo "cleaning tmp folders"
 
-rm -rf aapi
-rm -rf hcm
+rm -rf mybus
 
 echo "Cloning destination git repository"
 # Setup git
 git config --global user.email "$USER_EMAIL"
 git config --global user.name "$GITHUB_USERNAME"
-git clone --single-branch --branch master "https://$API_TOKEN_GITHUB@github.com/$REPO_USERNAME/$GITHUB_REPO.git" "aapi"
+git clone --single-branch --branch dev "https://$API_TOKEN_GITHUB@github.com/$REPO_USERNAME/$GITHUB_REPO.git" "mybus"
 
-git clone --single-branch --branch master "https://$API_TOKEN_GITHUB@github.com/IDREsandbox/hatecrimemap.git" "hcm"
-
-echo "making sure data folder exists"
-mkdir -p hcm/data/aapi
-
-echo "Copying contents to to git repo"
-cp -r data.csv hcm/data/aapi
-
-cd hcm/data/aapi
-
-git add data.csv
-
-echo "$DATESTAMP"
-echo "Adding git commit"
-  git commit -m "$DATESTAMP Update from https://github.com/$GITHUB_REPOSITORY/"
-echo "Pushing git commit"
-git push
+git remote add mybus-dev "https://$API_TOKEN_GITHUB@github.com/LACMTA/mybus-dev.git"
+git push mybus-dev dev
 
 echo "Done"
