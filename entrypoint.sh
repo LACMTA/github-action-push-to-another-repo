@@ -1,7 +1,6 @@
 #!/bin/sh -l
 
-echo "Starts"
-API_TOKEN="$1"
+echo "Starting"
 
 echo "cleaning tmp folders"
 
