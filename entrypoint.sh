@@ -2,20 +2,25 @@
 
 echo "Starting"
 
-echo "cleaning tmp folders"
+set -e  # if a command fails it stops the execution
+set -u  # script fails if trying to access to an undefined variable
 
-rm -rf mybus
-
-
-echo "Cloning source repository"
-# Setup git
-git clone --single-branch --branch dev "https://$API_TOKEN_GITHUB@github.com/LACMTA/mybus.git" "mybus"
+DESTINATION_GITHUB_USERNAME="${1}"
+DESTINATION_REPOSITORY_NAME="${2}"
+USER_EMAIL="${3}"
+USER_NAME="${4}"
 
 echo "$DESTINATION_GITHUB_USERNAME"
-echo "$DESTINATION_GITHUB_EMAIL"
+
+echo "Cleaning temp folder"
+rm -rf mybus
+
+# Setup git
+echo "Cloning source repository"
+git clone --single-branch --branch dev "https://$USER_NAME:$API_TOKEN_GITHUB@github.com/LACMTA/mybus.git" "mybus"
 
 echo "Adding destination repository as remote"
-git remote add mybus-dev "https://$API_TOKEN_GITHUB@github.com/LACMTA/mybus-dev.git"
+git remote add mybus-dev "https://$USER_NAME:$API_TOKEN_GITHUB@github.com/LACMTA/mybus-dev.git"
 
 echo "Pushing to destination repository"
 git push mybus-dev dev
