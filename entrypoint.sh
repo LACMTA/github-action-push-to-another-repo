@@ -13,7 +13,8 @@ rm -rf mybus
 echo "Cloning destination git repository"
 # Setup git
 
-git config --global user.name $GITHUB_USERNAME
+git config --global user.name "$GITHUB_USERNAME"
+
 git config --global user.email $USER_EMAIL
 
 git clone --single-branch --branch dev "https://$METRO_GITHUB_TOKEN@github.com/LACMTA/mybus.git" "mybus"
