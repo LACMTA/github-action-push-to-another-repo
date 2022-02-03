@@ -10,10 +10,12 @@ DESTINATION_REPOSITORY_NAME="${2}"
 USER_EMAIL="${3}"
 USER_NAME="${4}"
 
-echo "$DESTINATION_GITHUB_USERNAME"
-
 echo "Cleaning temp folder"
 rm -rf mybus
+
+echo "Setup git config"
+git config --global user.email "$USER_EMAIL"
+git config --global user.name "$USER_NAME"
 
 # Setup git
 echo "Cloning source repository"
