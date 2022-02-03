@@ -35,6 +35,7 @@ CLONE_DIR=$(mktemp -d)
 echo "Setup git config"
 git config --global user.email "$USER_EMAIL"
 git config --global user.name "$USER_NAME"
+git config -l
 
 {
 	git clone --single-branch --branch "$TARGET_BRANCH" "https://$USER_NAME:$API_TOKEN_GITHUB@$GITHUB_SERVER/$DESTINATION_REPOSITORY_USERNAME/$DESTINATION_REPOSITORY_NAME.git" "$CLONE_DIR"
