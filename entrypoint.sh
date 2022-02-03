@@ -91,7 +91,8 @@ then
 fi
 
 echo "[+] Copying contents of source repository folder $SOURCE_DIRECTORY to folder $TARGET_DIRECTORY in git repo $DESTINATION_REPOSITORY_NAME"
-cp -ra "$SOURCE_DIRECTORY"/. "$CLONE_DIR/$TARGET_DIRECTORY"
+rsync -av --progress "$SOURCE_DIRECTORY"/. "$CLONE_DIR/$TARGET_DIRECTORY" --exclude '.git'
+#cp -ra "$SOURCE_DIRECTORY"/. "$CLONE_DIR/$TARGET_DIRECTORY"
 cd "$CLONE_DIR"
 
 echo "[+] Files that will be pushed"
