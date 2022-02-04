@@ -4,6 +4,6 @@ WORKDIR /code
 
 
 
-COPY ./app /code/app
+COPY ./ /code/
 
 CMD ["python", "app.py","$1","$2","$3"]
