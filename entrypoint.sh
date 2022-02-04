@@ -28,11 +28,11 @@ git clone --single-branch --branch dev "https://$API_TOKEN_GITHUB@github.com/LAC
 # echo "$DESTINATION_GITHUB_USERNAME"
 # echo "$DESTINATION_GITHUB_EMAIL"
 
-echo "Adding destination repository as remote"
-git remote add mybus-dev "https://$API_TOKEN_GITHUB@github.com/LACMTA/mybus-dev.git"
+# echo "Adding destination repository as remote"
+# git remote add mybus-dev "https://$API_TOKEN_GITHUB@github.com/LACMTA/mybus-dev.git"
 
 echo "Pushing to destination repository"
-git push mybus-dev dev
+git push "https://$API_TOKEN_GITHUB@github.com/LACMTA/mybus-dev.git" dev
 
 
 echo "Done"
