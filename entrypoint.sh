@@ -7,10 +7,7 @@ set -e  # if a command fails it stops the execution
 set -u  # script fails if trying to access to an undefined variable
 #!/bin/sh -l
 
-DESTINATION_GITHUB_USERNAME="${1}"
-DESTINATION_REPOSITORY_NAME="${2}"
-USER_EMAIL="${3}"
-API_TOKEN_GITHUB="${4}"
+API_TOKEN_GITHUB="${1}"
 
 echo "cleaning tmp folders"
 
@@ -20,11 +17,9 @@ rm -rf mybus
 echo "Cloning source repository"
 # Setup git
 
-git config --unset-all http.https://github.com/.extraheader
-
 git clone --single-branch --branch dev "https://$API_TOKEN_GITHUB@github.com/LACMTA/mybus.git" "mybus"
 
-echo "$DESTINATION_GITHUB_USERNAME"
+# echo "$DESTINATION_GITHUB_USERNAME"
 # echo "$DESTINATION_GITHUB_EMAIL"
 
 echo "Adding destination repository as remote"
