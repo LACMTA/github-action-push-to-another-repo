@@ -15,3 +15,4 @@ def __main__():
     inputArg2 = sys.argv[2]
     push_to_github(inputArg1, inputArg2)
     return
+__main__()
