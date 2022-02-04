@@ -10,7 +10,7 @@ runs:
   using: docker
   image: Dockerfile
   env:
-    METRO_GITHUB_TOKEN: ${{ secrets.METRO_GITHUB_TOKEN }}
+    METRO_GITHUB_TOKEN: ${{inputs.github-token}}
 branding:
   icon: git-commit
   color: green
