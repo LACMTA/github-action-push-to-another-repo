@@ -31,6 +31,6 @@ def push_to_github(arg3):
 #    return
 
 if __name__ == "__main__":
-	gh_key = os.environ.get('METRO_GITHUB_TOKEN')
+	gh_key = os.environ.get('API_TOKEN_GITHUB')
 	push_to_github(gh_key)
 	print('Done.')
