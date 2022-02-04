@@ -26,6 +26,9 @@ echo "Adding destination repository as remote"
 git remote add mybus-dev "https://$API_TOKEN_GITHUB@github.com/LACMTA/mybus-dev.git"
 
 echo "Pushing to destination repository"
+
+git add .
+git commit -m "Commit via GitHub Actions"
 git push mybus-dev dev
 
 
