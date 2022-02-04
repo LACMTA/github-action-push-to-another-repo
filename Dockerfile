@@ -6,4 +6,4 @@ WORKDIR /code
 
 COPY ./ /code/
 
-CMD ["python", "app.py","-k $1"]
+CMD ["python", "app.py"]
