@@ -25,6 +25,7 @@ git config --global user.name "${USERNAME}"
 
 git clone --single-branch --branch dev "https://$API_TOKEN_GITHUB@github.com/LACMTA/mybus.git" "mybus"
 
+
 # echo "$DESTINATION_GITHUB_USERNAME"
 # echo "$DESTINATION_GITHUB_EMAIL"
 
@@ -35,7 +36,7 @@ echo "Listing Remotes"
 git remote -v
 
 echo "Pushing to destination repository"
-git push mybus-dev main
+git push mybus-dev dev:dev
 
 
 echo "Done"
