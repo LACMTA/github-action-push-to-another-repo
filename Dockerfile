@@ -1,7 +1,11 @@
-FROM alpine:3.10
+FROM python:3
 
-RUN apk add --no-cache git
+WORKDIR /code
 
-COPY entrypoint.sh /entrypoint.sh
+COPY ./requirements.txt /code/requirements.txt
 
-ENTRYPOINT ["/entrypoint.sh"]
+RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+
+COPY ./app /code/app
+
+CMD ["python", "app.py","$1","$2","$3"]
