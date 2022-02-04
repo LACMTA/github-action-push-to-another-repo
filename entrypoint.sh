@@ -32,7 +32,7 @@ git clone --single-branch --branch dev "https://$API_TOKEN_GITHUB@github.com/LAC
 # git remote add mybus-dev "https://$API_TOKEN_GITHUB@github.com/LACMTA/mybus-dev.git"
 
 echo "Pushing to destination repository"
-git push "https://$API_TOKEN_GITHUB@github.com/LACMTA/mybus-dev.git" dev
+git push "https://$API_TOKEN_GITHUB@github.com/LACMTA/mybus-dev.git" "dev"
 
 
 echo "Done"
